@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1058 1459">
+  <!-- Matches BL.JPG (1058 x 1459), cropped 17 px from the original left edge. -->
+  <!-- Transparent rectangles preserve the original covers; only the surrounding table is inverted. -->
+  <path fill="white" fill-rule="evenodd" d="
+    M0 0H1058V1459H0Z
+    M16 89H216V367H16Z
+    M223 89H422V367H223Z
+    M431 89H627V367H431Z
+    M638 89H833V367H638Z
+    M843 89H1040V367H843Z
+    M16 411H216V688H16Z
+    M224 411H422V688H224Z
+    M431 411H627V688H431Z
+    M638 411H833V688H638Z
+    M843 411H1040V688H843Z
+    M16 732H216V1009H16Z
+    M224 732H422V1009H224Z
+    M431 732H627V1009H431Z
+    M638 732H833V1009H638Z
+    M843 732H1040V1009H843Z
+    M21 1063H183V1294H21Z
+  "/>
+</svg>

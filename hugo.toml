@@ -1,0 +1,36 @@
+baseURL = 'https://neko283.github.io/'
+languageCode = 'en-US'
+title = '˚₊‧꒰ა nekochan ໒꒱ ‧₊˚'
+
+[params]
+  # Set either path to '/backup/border-home1.png' to restore the original flower banner.
+  banner_top = '/banner-hobbies.svg'
+  banner_bottom = '/banner-dislikes.svg'
+
+[menus]
+  [[menus.main]]
+    name = 'home'
+    pageRef = '/'
+    weight = 1
+    [menus.main.params]
+      image = '/digi.png'
+
+  [[menus.main]]
+    name = 'open-source'
+    pageRef = '/open-source'
+    weight = 2
+
+  [[menus.main]]
+    name = 'repo'
+    pageRef = '/repo'
+    weight = 3
+
+  [[menus.main]]
+    name = 'me'
+    pageRef = '/me'
+    weight = 4    
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = '0.146.0'

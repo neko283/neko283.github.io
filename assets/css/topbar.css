@@ -1,0 +1,20 @@
+:root {
+  /* Initial height: 24px padding on each side of the 44px theme switch. */
+  --site-topbar-height: 92px;
+  --site-topbar-gap: 16px;
+  scroll-padding-top: calc(var(--site-topbar-height) + var(--site-topbar-gap));
+}
+
+.site-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--page-bg, #111111);
+}
+
+/* Keep the article's sticky contents list below the navigation. */
+.toc-container {
+  top: calc(var(--site-topbar-height) + var(--site-topbar-gap));
+  max-height: calc(100vh - var(--site-topbar-height) - 2 * var(--site-topbar-gap));
+  overflow-y: auto;
+}

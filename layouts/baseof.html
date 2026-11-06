@@ -1,0 +1,104 @@
+<!doctype html>
+<html
+    lang="{{ site.Language.Locale }}"
+    dir="{{ or site.Language.Direction `ltr` }}"
+>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body>
+        <header class="site-topbar">{{ partial "header.html" . }}</header>
+        <div class="flex justify-center">
+            <img class="site-banner" src="{{ (site.Params.banner_top | default "/backup/border-home1.png") | relURL }}" height="56" alt="" aria-hidden="true" />
+        </div>
+        <main>
+            <div class="mx-auto w-full max-w-4xl px-4 py-6">
+                {{ block "main" . }}{{ end }}
+            </div>
+        </main>
+        {{ if or .IsHome (or (in (slice "post" "posts" "blog") .Type) (in (slice
+        "posts" "blog") .Section)) }}
+        <div class="mx-auto w-full max-w-4xl px-4 py-2 mt-8">
+            <img src="/recent-work.png" alt="recent-work" />
+        </div>
+        <div class="mx-auto w-full max-w-4xl px-4 py-4">
+            {{/* One latest open-source update, followed by one latest repo article. */}}
+            {{ $recentItems := slice }}
+            {{ with site.GetPage "/open-source" }}
+                {{ $updates := slice }}
+                {{ range .Params.externalLinks }}
+                    {{ $updates = $updates | append (dict "type" "link" "data" . "sortDate" (time .date)) }}
+                {{ end }}
+                {{ range first 1 (sort $updates "sortDate" "desc") }}
+                    {{ $recentItems = $recentItems | append . }}
+                {{ end }}
+            {{ end }}
+            {{ $repoPosts := where site.RegularPages "Section" "repo" }}
+            {{ range first 1 $repoPosts.ByDate.Reverse }}
+                {{ $recentItems = $recentItems | append (dict "type" "post" "data" .) }}
+            {{ end }}
+
+            <div class="grid lg:grid-cols-2 gap-4">
+                {{ range $recentItems }} {{ if eq .type "post" }} {{ $post :=
+                .data }}
+                <a
+                    href="{{ $post.RelPermalink }}"
+                    class="not-prose block relative cursor-pointer flex flex-col space-y-4 rounded-lg border border-white p-6 transition-all duration-150 hover:border-pink-300 group focus:outline-none focus:ring-2 focus:ring-pink-300"
+                    aria-label="{{ $post.LinkTitle }}"
+                >
+                    <h3 class="font-semibold flex items-center gap-2">
+                        {{ with $post.Params.listIcon }}<img
+                            src="{{ . }}"
+                            alt=""
+                        />{{ end }} {{ $post.LinkTitle }}
+                    </h3>
+
+                    {{ with $post.Params.teaser }}
+                    <p><em>{{ . }}</em></p>
+                    {{ else }} {{ with $post.Params.description }}
+                    <p><em>{{ . }}</em></p>
+                    {{ else }}
+                    <p><em>{{ $post.Summary }}</em></p>
+                    {{ end }} {{ end }}
+
+                    <span class="self-start text-sm text-white underline">
+                        Read more →
+                    </span>
+                </a>
+                {{ else if eq .type "link" }} {{ $link := .data }}
+                <a
+                    href="{{ $link.url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="not-prose block relative cursor-pointer flex flex-col space-y-4 rounded-lg border border-white p-6 transition-all duration-150 hover:border-pink-300 group focus:outline-none focus:ring-2 focus:ring-pink-300"
+                    aria-label="{{ $link.title }}"
+                >
+                    <h3 class="font-semibold flex items-center gap-2">
+                        {{ with $link.icon }}<img src="{{ . }}" alt="" />{{ end
+                        }} {{ $link.title }}
+                    </h3>
+
+                    {{ with $link.teaser }}
+                    {{ if reflect.IsSlice . }}
+                    <ul class="pl-5">
+                        {{ partial "teaser-items.html" . }}
+                    </ul>
+                    {{ else }}
+                    <p><em>{{ . }}</em></p>
+                    {{ end }}
+                    {{ end }}
+
+                    <span class="self-start text-sm text-white underline">
+                        Read more →
+                    </span>
+                </a>
+                {{ end }} {{ end }}
+            </div>
+        </div>
+        {{ end }}
+        <div class="flex justify-center">
+            <img class="site-banner" src="{{ (site.Params.banner_bottom | default "/backup/border-home1.png") | relURL }}" height="56" alt="" aria-hidden="true" />
+        </div>
+        <footer>{{ partial "footer.html" . }}</footer>
+    </body>
+</html>

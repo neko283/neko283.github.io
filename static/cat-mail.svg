@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" shape-rendering="crispEdges">
+  <title>猫咪信封</title>
+  <!-- Pure vector pixels prevent scaling fringes. Original cat ears restored;
+       eye pixels reduced from 6 to 4 units, with eye centers shifted down 3 units. -->
+  <path fill="#fff" d="M57 45h6v6h-6Z M117 45h6v6h-6Z M51 51h6v12h-6Z M123 51h6v12h-6Z M45 63h18v6h-18Z M117 63h18v6h-18Z M33 69h18v6h-18Z M63 69h54v6h-54Z M129 69h18v6h-18Z M45 75h6v6h-6Z M63 75h6v6h-6Z M111 75h6v6h-6Z M129 75h6v6h-6Z M51 81h12v6h-12Z M117 81h12v6h-12Z M27 75h6v24h-6Z M147 75h6v24h-6Z M27 99h18v6h-18Z M75 99h12v6h-12Z M93 99h12v6h-12Z M135 99h18v6h-18Z M45 105h12v6h-12Z M69 105h6v6h-6Z M87 105h6v6h-6Z M105 105h6v6h-6Z M123 105h12v6h-12Z M57 111h18v6h-18Z M105 111h18v6h-18Z M69 117h12v6h-12Z M99 117h12v6h-12Z M75 123h12v6h-12Z M93 123h12v6h-12Z M81 129h18v6h-18Z M27 105h6v42h-6Z M147 105h6v42h-6Z M33 147h114v6h-114Z M63 27h6v18h-6Z M69 33h6v6h-6Z M75 39h30v6h-30Z M105 33h6v6h-6Z M111 27h6v18h-6Z M71 51h4v4h-4Z M75 55h4v4h-4Z M71 59h4v4h-4Z M105 51h4v4h-4Z M101 55h4v4h-4Z M105 59h4v4h-4Z"/>
+</svg>

@@ -1,0 +1,26 @@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    {{ with resources.Get "js/theme.js" }}
+    <script src="{{ .RelPermalink }}"></script>
+    {{ end }}
+    <link rel="icon" type="image/png" href="/cat.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    {{ with resources.Get "css/theme.css" }}
+    <link href="{{ .RelPermalink }}" rel="stylesheet">
+    {{ end }}
+    {{ with resources.Get "css/cursor.css" }}
+    <link href="{{ .RelPermalink }}" rel="stylesheet">
+    {{ end }}
+    {{ with resources.Get "js/cursor.js" }}
+    <script src="{{ .RelPermalink }}" data-cursor-src="{{ "balloon.gif" | relURL }}" defer></script>
+    {{ end }}
+    {{ with resources.Get "css/topbar.css" }}
+    <link href="{{ .RelPermalink }}" rel="stylesheet">
+    {{ end }}
+    {{ with resources.Get "js/topbar.js" }}
+    <script src="{{ .RelPermalink }}" defer></script>
+    {{ end }}

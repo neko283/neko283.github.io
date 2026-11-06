@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="mx-auto w-full max-w-4xl px-4 py-6 space-y-6">
+  <div class="flex justify-center">
+    <img src="{{ "cats.png" | relURL }}" alt="两只像素猫咪">
+  </div>
+
+  {{ $p := .Params }}
+  <div class="grid lg:grid-cols-3 gap-2">
+    <div class="not-prose flex cursor-default flex-col space-y-4 rounded-lg border border-white p-4 transition-all duration-150">
+      <img src="{{ "bl-games.svg" | relURL }}" alt="BL GAMES" class="me-category-image" width="98" height="54">
+      <ul>
+        {{ range $p.bl_games }}
+          <li>{{ . | markdownify }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="not-prose flex cursor-default flex-col space-y-4 rounded-lg border border-white p-4 transition-all duration-150">
+      <img src="{{ "bl-manga.svg" | relURL }}" alt="BL MANGA" class="me-category-image" width="98" height="54">
+      <ul>
+        {{ range $p.bl_manga }}
+          <li>{{ . | markdownify }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="not-prose flex cursor-default flex-col space-y-4 rounded-lg border border-white p-4 transition-all duration-150">
+      <img src="{{ "others.svg" | relURL }}" alt="OTHERS" class="me-category-image" width="98" height="54">
+      <ul>
+        {{ range $p.others }}
+          <li>{{ . | markdownify }}</li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+
+  {{ .Content }}
+</div>
+{{ end }}
