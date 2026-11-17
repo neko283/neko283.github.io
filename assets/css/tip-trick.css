@@ -1,0 +1,64 @@
+/* 自动应用于 content/tip&trick 下的文章，无需在 Markdown 中重复写样式。 */
+.tip-trick-content table {
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: clamp(4px, 1vw, 12px) 0;
+  margin: 1.5rem 0 2rem;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.8;
+}
+
+.tip-trick-content th,
+.tip-trick-content td {
+  border: 0;
+  border-bottom: 1px solid var(--page-rule);
+  padding: 14px 0;
+  text-align: left;
+  vertical-align: top;
+  background: transparent;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* 各单元格的横线由列间距隔开，最后一行不加封底线。 */
+.tip-trick-content tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.tip-trick-content table img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.tip-trick-content > p > img {
+  display: block;
+  max-width: min(100%, 24rem);
+  height: auto;
+  margin-inline: auto;
+}
+
+.tip-trick-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* 复用主题强调色：白天蓝色、黑夜粉色；不改变 fenced code block。 */
+.tip-trick-content :not(pre) > code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--page-accent) 10%, transparent);
+  color: var(--page-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}

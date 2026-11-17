@@ -1,0 +1,12 @@
+{{ range . }}
+  <li>
+    {{ if reflect.IsMap . }}
+      <em>{{ .text | plainify }}</em>
+      {{ with .items }}
+        <ul class="pl-5">{{ partial "teaser-items.html" . }}</ul>
+      {{ end }}
+    {{ else }}
+      <em>{{ . | plainify }}</em>
+    {{ end }}
+  </li>
+{{ end }}
